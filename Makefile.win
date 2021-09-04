@@ -1,0 +1,61 @@
+# Project: C”Ô“Â∑÷Œˆ
+# Makefile created by Dev-C++ 5.10
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o KeywordsTable.o IdentifierTable.o Store.o ConstTable.o lexical_analyzer.o grammer_analyzer.o Node.o semantic_analyzer.o inter.o dstcode.o symbol.o
+LINKOBJ  = main.o KeywordsTable.o IdentifierTable.o Store.o ConstTable.o lexical_analyzer.o grammer_analyzer.o Node.o semantic_analyzer.o inter.o dstcode.o symbol.o
+LIBS     = -L"D:/Dev-Cpp/MinGW64/lib" -static-libgcc -g3
+INCS     = -I"D:/Dev-Cpp/MinGW64/include" -I"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"D:/Dev-Cpp/MinGW64/include" -I"D:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"D:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = pro1.exe
+CXXFLAGS = $(CXXINCS) -g3 -std=c++11
+CFLAGS   = $(INCS) -g3 -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+KeywordsTable.o: KeywordsTable.cpp
+	$(CPP) -c KeywordsTable.cpp -o KeywordsTable.o $(CXXFLAGS)
+
+IdentifierTable.o: IdentifierTable.cpp
+	$(CPP) -c IdentifierTable.cpp -o IdentifierTable.o $(CXXFLAGS)
+
+Store.o: Store.cpp
+	$(CPP) -c Store.cpp -o Store.o $(CXXFLAGS)
+
+ConstTable.o: ConstTable.cpp
+	$(CPP) -c ConstTable.cpp -o ConstTable.o $(CXXFLAGS)
+
+lexical_analyzer.o: lexical_analyzer.cpp
+	$(CPP) -c lexical_analyzer.cpp -o lexical_analyzer.o $(CXXFLAGS)
+
+grammer_analyzer.o: grammer_analyzer.cpp
+	$(CPP) -c grammer_analyzer.cpp -o grammer_analyzer.o $(CXXFLAGS)
+
+Node.o: Node.cpp
+	$(CPP) -c Node.cpp -o Node.o $(CXXFLAGS)
+
+semantic_analyzer.o: semantic_analyzer.cpp
+	$(CPP) -c semantic_analyzer.cpp -o semantic_analyzer.o $(CXXFLAGS)
+
+inter.o: inter.cpp
+	$(CPP) -c inter.cpp -o inter.o $(CXXFLAGS)
+
+dstcode.o: dstcode.cpp
+	$(CPP) -c dstcode.cpp -o dstcode.o $(CXXFLAGS)
+
+symbol.o: symbol.cpp
+	$(CPP) -c symbol.cpp -o symbol.o $(CXXFLAGS)

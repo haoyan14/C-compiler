@@ -1,0 +1,21 @@
+#include<iostream>
+int num0,num1,num2,out,op;
+int num3=321;
+num1 = 333;
+num0 = 333 + 666;
+num2 = 9999+num0+3;
+while(op>0)
+{
+    if(op==1)
+    {
+         out = num1;
+    };
+    else if(op==2)
+    {
+         out = num2;
+    };
+    else
+    {
+         out = num3;
+    };
+};

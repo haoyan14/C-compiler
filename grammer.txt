@@ -1,0 +1,37 @@
+program -> headers programs
+header -> # include < id > 
+headers -> header headers | e
+programs -> program1 programs | e | branch programs  | assignment ; programs  | loop programs  | jump ; programs 
+program1 -> type para0 | get ( idlist ) ; | put ( idlist ) ; 
+para0 -> id para1 
+para1 -> idassignlist2 idlist3 ; | ( paralist ) para2
+paralist  -> type  id para | e | id , paralist
+para -> , type id para | e
+para2 -> ; | { sentences }
+sentences -> sentences1
+sentences1 ->  sentence  sentences1 | e
+sentence -> branch | assignment ; | loop | jump ; | statement ; | get ( idlist ) ; | put ( idlist ) ; 
+statement -> type idlist 
+idlist ->  id idassignlist2 idlist3
+idlist3 -> , idlist | e
+idassignlist2 -> = expression | e | arrayassign
+arrayassign -> [ cons ] arrayassign2
+arrayassign2 -> = { idlist } | e
+type -> int | char | bool | double | float | short | long  
+assignment -> id assignment1
+assignment1 -> ++ | -- | = expression | [ cons ] = expression 
+expression -> id expression1 | cons opexpression1 | ( opnum opexpression1 )
+expression1 -> ( paralist ) | opexpression1
+opexpression -> cons opexpression1 | ( opnum opexpression1 ) | id opexpression1
+opnum -> cons | id
+opexpression1 -> e | + opexpression | - opexpression | * opexpression | / opexpression | & opexpression | > opexpression | < opexpression | <= opexpression | >= opexpression | == opexpression | != opexpression
+opexpression1 -> | opexpression
+branch -> if ( cmpexpression ) { sentences } ;  branch1
+branch1 -> else branch2  | e
+branch2 -> { sentences } ; | sentence | branch
+cmpexpression -> id expression1 | cons 
+cmpope -> > | < | >= | <= | == | != 
+loop -> forloop | whileloop
+forloop -> for ( assignment ; cmpexpression ; opexpression1 ) { sentences }
+whileloop -> while ( cmpexpression ) { sentences  } ;   
+jump -> break | return cmpexpression | continue 

@@ -1,0 +1,8 @@
+int num0;
+int num0,num1,num4;
+int num5=321;
+bool b1;
+num3 = 9999;
+num4=9999+3333;
+b1=true;
+
